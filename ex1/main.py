@@ -1,0 +1,39 @@
+from ex0.CreatureCard import CreatureCard
+from ex1.SpellCard import SpellCard
+from ex1.ArtifactCard import ArtifactCard
+from ex1.Deck import Deck
+
+
+def main():
+    print()
+    print("=== DataDeck Deck Builder ===")
+    print()
+    print("Building deck with different card types...")
+
+    deck = Deck()
+    deck.add_card(SpellCard("Lightning Bolt", 3, "Common", "damage"))
+    deck.add_card(ArtifactCard("Mana Crystal", 2, "Common", 5,
+                               "+1 mana per turn"))
+    deck.add_card(CreatureCard("Fire Dragon", 5, "Legendary", 7, 5))
+
+    stats = deck.get_deck_stats()
+    print(f"Deck stats: {stats}")
+    print()
+
+    print("Drawing and playing cards:")
+    print()
+    try:
+        while True:
+            card = deck.draw_card()
+            card_type = card.__class__.__name__.replace("Card", "")
+            print(f"Drew: {card.name} ({card_type})")
+            print(f"Play result: {card.play({})}")
+            print()
+    except IndexError:
+        pass
+
+    print("Polymorphism in action: Same interface, different card behaviors!")
+
+
+if __name__ == "__main__":
+    main()

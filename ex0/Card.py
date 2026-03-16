@@ -11,7 +11,7 @@ class Rarity(Enum):
 
 class Card(ABC):
 
-    def __init__(self, name: str, cost: int, rarity: Rarity):
+    def __init__(self, name: str, cost: int, rarity: str):
         self.name = name
         self.cost = cost
         if rarity not in Rarity:
