@@ -30,6 +30,7 @@ def main():
         mana = 3
         print(f"Testing insufficient mana ({mana} available):")
         print(f"Playable: {dragon.is_playable(mana)}")
+        print()
 
         print("Abstract pattern successfully demonstrated!")
     except Exception as e:

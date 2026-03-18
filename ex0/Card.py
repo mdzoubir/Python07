@@ -9,13 +9,22 @@ class Rarity(Enum):
     LEGENDARY = "Legendary"
 
 
+class CardType(Enum):
+    CREATURE = "Creature"
+    SPELL = "Spell"
+    ARTIFACT = "Artifact"
+    ELITE = "Elite"
+    TOURNAMENT = "Tournament"
+
+
 class Card(ABC):
 
-    def __init__(self, name: str, cost: int, rarity: str):
+    def __init__(self, name: str, cost: int, rarity: str) -> None:
         self.name = name
         self.cost = cost
-        if rarity not in Rarity:
-            raise ValueError("Rarity must be one of: Common, Uncommon, Rare, Legendary")
+        valid_rarities = {r.value for r in Rarity}
+        if rarity not in valid_rarities:
+            raise ValueError("Invalid rarity value")
         self.rarity = rarity
 
     @abstractmethod

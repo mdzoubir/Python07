@@ -1,4 +1,4 @@
-from ex0.Card import Card
+from ex0.Card import Card, CardType
 
 
 class CreatureCard(Card):
@@ -23,7 +23,7 @@ class CreatureCard(Card):
     def get_card_info(self) -> dict:
         info = super().get_card_info()
         info.update({
-            'type': 'Creature',
+            'type': CardType.CREATURE.value,
             'attack': self.attack,
             'health': self.health
         })
