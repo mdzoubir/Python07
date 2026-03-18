@@ -2,7 +2,7 @@ from ex0.CreatureCard import CreatureCard
 from ex0.Card import Rarity
 
 
-def main():
+def main() -> None:
     print()
     print("=== DataDeck Card Foundation ===")
     print()

@@ -4,7 +4,7 @@ from ex1.ArtifactCard import ArtifactCard
 from ex1.Deck import Deck
 
 
-def main():
+def main() -> None:
     print()
     print("=== DataDeck Deck Builder ===")
     print()
