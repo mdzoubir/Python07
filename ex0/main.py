@@ -14,12 +14,13 @@ def main() -> None:
         print("CreatureCard Info:")
         print(dragon.get_card_info())
         print()
-
-        mana = 6
-        print(f"Playing {dragon.name} with {mana} mana available:")
-        print(f"Playable: {dragon.is_playable(mana)}")
-        if dragon.is_playable(mana):
-            print(f"Play result: {dragon.play({})}")
+        game_state = {'mana': 6}
+        print(
+            f"Playing {dragon.name} with {game_state['mana']} mana available:"
+        )
+        print(f"Playable: {dragon.is_playable(game_state['mana'])}")
+        if dragon.is_playable(game_state['mana']):
+            print(f"Play result: {dragon.play(game_state)}")
         print()
 
         target_name = "Goblin Warrior"
@@ -27,9 +28,9 @@ def main() -> None:
         print(f"Attack result: {dragon.attack_target(target_name)}")
         print()
 
-        mana = 3
-        print(f"Testing insufficient mana ({mana} available):")
-        print(f"Playable: {dragon.is_playable(mana)}")
+        game_state['mana'] = 3
+        print(f"Testing insufficient mana ({game_state['mana']} available):")
+        print(f"Playable: {dragon.is_playable(game_state['mana'])}")
         print()
 
         print("Abstract pattern successfully demonstrated!")

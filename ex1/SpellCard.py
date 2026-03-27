@@ -3,11 +3,15 @@ from ex0.Card import Card
 
 class SpellCard(Card):
 
-    def __init__(self, name: str, cost: int, rarity: str, effect_type: str) -> None:
+    def __init__(self, name: str, cost: int, rarity: str,
+                 effect_type: str) -> None:
         super().__init__(name, cost, rarity)
         self.effect_type = effect_type
 
     def play(self, game_state: dict) -> dict:
+        if not self.is_playable(game_state.get('mana', 0)):
+            raise ValueError("Not enough mana to play this card")
+        game_state['mana'] -= self.cost
         return {
             'card_played': self.name,
             'mana_used': self.cost,

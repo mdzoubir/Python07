@@ -22,12 +22,13 @@ def main() -> None:
 
     print("Drawing and playing cards:")
     print()
+    game_state = {'mana': 10}
     try:
         while True:
             card = deck.draw_card()
             card_type = card.__class__.__name__.replace("Card", "")
             print(f"Drew: {card.name} ({card_type})")
-            print(f"Play result: {card.play({})}")
+            print(f"Play result: {card.play(game_state)}")
             print()
     except IndexError:
         pass

@@ -1,6 +1,7 @@
 from ex0.Card import Card
 from ex2.Combatable import Combatable
 from ex2.Magical import Magical
+import random
 
 
 class EliteCard(Card, Combatable, Magical):
@@ -14,6 +15,9 @@ class EliteCard(Card, Combatable, Magical):
         self.health = health
 
     def play(self, game_state: dict) -> dict:
+        if not self.is_playable(game_state.get('mana', 0)):
+            raise ValueError("Not enough mana to play this card")
+        game_state['mana'] -= self.cost
         return {
             'card_played': self.name,
             'mana_used': self.cost,
@@ -29,8 +33,8 @@ class EliteCard(Card, Combatable, Magical):
         }
 
     def defend(self, incoming_damage: int) -> dict:
-        damage_blocked = 3
-        damage_taken = max(0, incoming_damage - damage_blocked)
+        damage_blocked = random.randint(0, self.attack_power // 2)
+        damage_taken = max(incoming_damage - damage_blocked, 0)
         self.health -= damage_taken
         return {
             'defender': self.name,

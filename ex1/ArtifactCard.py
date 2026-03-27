@@ -10,6 +10,9 @@ class ArtifactCard(Card):
         self.effect = effect
 
     def play(self, game_state: dict) -> dict:
+        if not self.is_playable(game_state.get('mana', 0)):
+            raise ValueError("Not enough mana to play this card")
+        game_state['mana'] -= self.cost
         return {
             'card_played': self.name,
             'mana_used': self.cost,
