@@ -1,11 +1,13 @@
 from ex0.Card import Card
 from ex2.Combatable import Combatable
 from ex4.Rankable import Rankable
+import random
 
 
 class TournamentCard(Card, Combatable, Rankable):
     def __init__(self, name: str, cost: int, rarity: str, attack_power: int,
-                 health: int, base_rating: int = 1000) -> None:
+                 health: int,
+                 base_rating: int = random.randint(1000, 1500)) -> None:
         Card.__init__(self, name, cost, rarity)
         self.attack_power = attack_power
         self.health = health

@@ -1,4 +1,5 @@
 from ex4.TournamentCard import TournamentCard
+from typing import Dict
 
 
 class TournamentPlatform:
@@ -12,7 +13,7 @@ class TournamentPlatform:
         self.cards[card_id] = card
         return card_id
 
-    def create_match(self, card1_id: str, card2_id: str) -> dict:
+    def create_match(self, card1_id: str, card2_id: str) -> Dict:
         card1 = self.cards[card1_id]
         card2 = self.cards[card2_id]
         if card1.attack_power >= card2.attack_power:
@@ -45,7 +46,7 @@ class TournamentPlatform:
             for i, c in enumerate(cards, 1)
         ]
 
-    def generate_tournament_report(self) -> dict:
+    def generate_tournament_report(self) -> Dict:
         ratings = [c.rating for c in self.cards.values()]
         avg = sum(ratings) // len(ratings) if ratings else 0
         return {

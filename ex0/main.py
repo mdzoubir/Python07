@@ -9,33 +9,30 @@ def main() -> None:
     print("Testing Abstract Base Class Design:")
     print()
 
-    try:
-        dragon = CreatureCard("Fire Dragon", 5, Rarity.LEGENDARY.value, 7, 5)
-        print("CreatureCard Info:")
-        print(dragon.get_card_info())
-        print()
-        game_state = {'mana': 6}
-        print(
-            f"Playing {dragon.name} with {game_state['mana']} mana available:"
-        )
-        print(f"Playable: {dragon.is_playable(game_state['mana'])}")
-        if dragon.is_playable(game_state['mana']):
-            print(f"Play result: {dragon.play(game_state)}")
-        print()
+    dragon = CreatureCard("Fire Dragon", 5, Rarity.LEGENDARY.value, 7, 5)
+    print("CreatureCard Info:")
+    print(dragon.get_card_info())
+    print()
+    game_state = {'mana': 6}
+    print(
+        f"Playing {dragon.name} with {game_state['mana']} mana available:"
+    )
+    print(f"Playable: {dragon.is_playable(game_state['mana'])}")
+    if dragon.is_playable(game_state['mana']):
+        print(f"Play result: {dragon.play(game_state)}")
+    print()
 
-        target_name = "Goblin Warrior"
-        print(f"{dragon.name} attacks {target_name}:")
-        print(f"Attack result: {dragon.attack_target(target_name)}")
-        print()
+    target_name = "Goblin Warrior"
+    print(f"{dragon.name} attacks {target_name}:")
+    print(f"Attack result: {dragon.attack_target(target_name)}")
+    print()
 
-        game_state['mana'] = 3
-        print(f"Testing insufficient mana ({game_state['mana']} available):")
-        print(f"Playable: {dragon.is_playable(game_state['mana'])}")
-        print()
+    game_state['mana'] = 3
+    print(f"Testing insufficient mana ({game_state['mana']} available):")
+    print(f"Playable: {dragon.is_playable(game_state['mana'])}")
+    print()
 
-        print("Abstract pattern successfully demonstrated!")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    print("Abstract pattern successfully demonstrated!")
 
 
 if __name__ == "__main__":

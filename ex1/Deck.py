@@ -39,17 +39,13 @@ class Deck:
             return stats
 
         total_cost = 0
-        from ex0.CreatureCard import CreatureCard
-        from ex1.SpellCard import SpellCard
-        from ex1.ArtifactCard import ArtifactCard
-
         for card in self.cards:
             total_cost += card.cost
-            if isinstance(card, CreatureCard):
+            if card.__class__.__name__ == "CreatureCard":
                 stats['creatures'] += 1
-            elif isinstance(card, SpellCard):
+            elif card.__class__.__name__ == "SpellCard":
                 stats['spells'] += 1
-            elif isinstance(card, ArtifactCard):
+            elif card.__class__.__name__ == "ArtifactCard":
                 stats['artifacts'] += 1
 
         stats['avg_cost'] = float(math.ceil(total_cost / len(self.cards)))

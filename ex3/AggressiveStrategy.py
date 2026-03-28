@@ -1,4 +1,5 @@
 from ex3.GameStrategy import GameStrategy
+import random
 
 
 class AggressiveStrategy(GameStrategy):
@@ -7,7 +8,7 @@ class AggressiveStrategy(GameStrategy):
         mana_used = 0
         damage_dealt = 0
         sorted_hand = sorted(hand, key=lambda c: c.cost)
-        available_mana = 5
+        available_mana = random.randint(5, 10)
         for card in sorted_hand:
             if card.cost <= available_mana:
                 cards_played.append(card.name)

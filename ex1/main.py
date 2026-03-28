@@ -2,6 +2,7 @@ from ex0.CreatureCard import CreatureCard
 from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
 from ex1.Deck import Deck
+from ex0.Card import Rarity
 
 
 def main() -> None:
@@ -11,10 +12,11 @@ def main() -> None:
     print("Building deck with different card types...")
 
     deck = Deck()
-    deck.add_card(SpellCard("Lightning Bolt", 3, "Common", "damage"))
-    deck.add_card(ArtifactCard("Mana Crystal", 2, "Common", 5,
+    deck.add_card(SpellCard("Lightning Bolt", 3, Rarity.COMMON.value,
+                  "damage"))
+    deck.add_card(ArtifactCard("Mana Crystal", 2, Rarity.COMMON.value, 5,
                                "+1 mana per turn"))
-    deck.add_card(CreatureCard("Fire Dragon", 5, "Legendary", 7, 5))
+    deck.add_card(CreatureCard("Fire Dragon", 5, Rarity.LEGENDARY.value, 7, 5))
 
     stats = deck.get_deck_stats()
     print(f"Deck stats: {stats}")
