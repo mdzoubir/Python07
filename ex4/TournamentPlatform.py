@@ -1,5 +1,5 @@
 from ex4.TournamentCard import TournamentCard
-from typing import Dict
+from typing import Dict, List
 
 
 class TournamentPlatform:
@@ -33,7 +33,7 @@ class TournamentPlatform:
         self.matches.append(result)
         return result
 
-    def get_leaderboard(self) -> list:
+    def get_leaderboard(self) -> List[Dict]:
         cards = sorted(self.cards.values(),
                        key=lambda c: c.rating, reverse=True)
         return [

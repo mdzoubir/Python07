@@ -1,9 +1,10 @@
 from ex3.CardFactory import CardFactory
 from ex3.GameStrategy import GameStrategy
+from typing import Dict
 
 
 class GameEngine:
-    def __init__(self):
+    def __init__(self) -> None:
         self.factory = None
         self.strategy = None
         self.battlefield = []
@@ -13,7 +14,7 @@ class GameEngine:
         self.factory = factory
         self.strategy = strategy
 
-    def simulate_turn(self) -> dict:
+    def simulate_turn(self) -> Dict:
         hand = [
             self.factory.create_creature("dragon"),
             self.factory.create_creature("goblin"),
@@ -28,7 +29,7 @@ class GameEngine:
             'actions': result
         }
 
-    def get_engine_status(self) -> dict:
+    def get_engine_status(self) -> Dict:
         return {
             'turns_simulated': 1,
             'strategy_used': self.strategy.get_strategy_name(),

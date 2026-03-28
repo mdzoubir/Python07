@@ -5,7 +5,6 @@ from typing import List
 
 
 class Deck:
-
     def __init__(self) -> None:
         self.cards: List[Card] = []
 
@@ -37,7 +36,6 @@ class Deck:
         }
         if not self.cards:
             return stats
-
         total_cost = 0
         for card in self.cards:
             total_cost += card.cost
@@ -47,6 +45,5 @@ class Deck:
                 stats['spells'] += 1
             elif card.__class__.__name__ == "ArtifactCard":
                 stats['artifacts'] += 1
-
         stats['avg_cost'] = float(math.ceil(total_cost / len(self.cards)))
         return stats

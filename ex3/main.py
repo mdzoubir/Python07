@@ -3,7 +3,7 @@ from ex3.AggressiveStrategy import AggressiveStrategy
 from ex3.GameEngine import GameEngine
 
 
-def main():
+def main() -> None:
     print("=== DataDeck Game Engine ===\n")
     factory = FantasyCardFactory()
     strategy = AggressiveStrategy()

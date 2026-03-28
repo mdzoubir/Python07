@@ -1,9 +1,10 @@
 from ex3.GameStrategy import GameStrategy
+from typing import Dict, List
 import random
 
 
 class AggressiveStrategy(GameStrategy):
-    def execute_turn(self, hand: list, battlefield: list) -> dict:
+    def execute_turn(self, hand: List, battlefield: List) -> Dict:
         cards_played = []
         mana_used = 0
         damage_dealt = 0
@@ -33,5 +34,5 @@ class AggressiveStrategy(GameStrategy):
     def get_strategy_name(self) -> str:
         return "AggressiveStrategy"
 
-    def prioritize_targets(self, available_targets: list) -> list:
+    def prioritize_targets(self, available_targets: List) -> List:
         return available_targets

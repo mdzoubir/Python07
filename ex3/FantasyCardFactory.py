@@ -2,12 +2,11 @@ from ex3.CardFactory import CardFactory
 from ex0.CreatureCard import CreatureCard
 from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
-from ex0.Card import Rarity
+from ex0.Card import Rarity, Card
 
 
 class FantasyCardFactory(CardFactory):
-
-    def __init__(self):
+    def __init__(self) -> None:
         self.creatures = {
             'dragon': ("Fire Dragon", 5, Rarity.LEGENDARY.value, 7, 5),
             'goblin': ("Goblin Warrior", 2, Rarity.COMMON.value, 2, 2)
@@ -22,7 +21,7 @@ class FantasyCardFactory(CardFactory):
             'staff': ("Magic Staff", 3, Rarity.RARE.value, 3, "+2 spell power")
         }
 
-    def create_creature(self, name_or_power: str | int | None = None):
+    def create_creature(self, name_or_power: str | int | None = None) -> Card:
         if isinstance(name_or_power, str):
             key = 'goblin' if 'goblin' in name_or_power.lower() else 'dragon'
         elif isinstance(name_or_power, int):
@@ -32,7 +31,7 @@ class FantasyCardFactory(CardFactory):
         data = self.creatures[key]
         return CreatureCard(*data)
 
-    def create_spell(self, name_or_power: str | int | None = None):
+    def create_spell(self, name_or_power: str | int | None = None) -> Card:
         if isinstance(name_or_power, str):
             key = 'fireball' if 'fireball' in name_or_power.lower() \
                 else 'lightning'
@@ -45,7 +44,7 @@ class FantasyCardFactory(CardFactory):
             data = self.spells['lightning']
             return SpellCard(*data)
 
-    def create_artifact(self, name_or_power: str | int | None = None):
+    def create_artifact(self, name_or_power: str | int | None = None) -> Card:
         if isinstance(name_or_power, str):
             key = 'staff' if 'staff' in name_or_power.lower() else 'crystal'
             data = self.artifacts[key]

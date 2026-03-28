@@ -3,15 +3,17 @@ from typing import Dict, List
 
 
 class GameStrategy(ABC):
-
-    @abstractmethod
     def execute_turn(self, hand: List, battlefield: List) -> Dict:
         pass
 
-    @abstractmethod
+    execute_turn = abstractmethod(execute_turn)
+
     def get_strategy_name(self) -> str:
         pass
 
-    @abstractmethod
+    get_strategy_name = abstractmethod(get_strategy_name)
+
     def prioritize_targets(self, available_targets: List) -> List:
         pass
+
+    prioritize_targets = abstractmethod(prioritize_targets)

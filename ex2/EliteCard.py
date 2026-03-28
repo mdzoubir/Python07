@@ -5,7 +5,6 @@ import random
 
 
 class EliteCard(Card, Combatable, Magical):
-
     def __init__(self, name: str, cost: int, rarity: str, attack_power: int,
                  magic_power: int, health: int = 10) -> None:
         Card.__init__(self, name, cost, rarity)

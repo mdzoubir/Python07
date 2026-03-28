@@ -27,9 +27,10 @@ class Card(ABC):
             raise ValueError("Invalid rarity value")
         self.rarity = rarity
 
-    @abstractmethod
     def play(self, game_state: Dict) -> Dict:
         pass
+
+    play = abstractmethod(play)
 
     def get_card_info(self) -> Dict:
         return {
